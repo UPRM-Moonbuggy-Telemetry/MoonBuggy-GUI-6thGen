@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+		<meta content="Alexander" name="autor">
+		<meta content="GUI de Telemetria" name="Descripcion">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+	<title>Telemetry Moonbuggy 2017-2018</title>
+    <!-- El Selector universal * es lento de por si -->
+    <style type="text/css">
+	body{
+	 background-color: #696969;
+	 }
+
+    canvas{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    .sponsor{
+    	background-color: #DCDCDC;
+    		color: 	#32CD32;
+
+    }
+    .navbar{
+
+    	 padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    }
+    .navbar-nav li a:hover {
+    	color:  #1abc9c;
+    }
+
+
+</style>
+</head>
+
+<body>	
+<header>
+	 <nav class="navbar navbar-inverse">
+	 	<div class="container-fluid">
+	 		<div class="navbar-header">
+	 			<button type="button" class="navbar-toggle" data-toggle="collapse" data target="#MyNavbar">
+	 			<span class="icon-bar"></span>
+	 			<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+			<a class="navbar-brand" href="#">Moonbuggy Telemetry</a>
+			<a class="navbar-left" href="#"><img src="http://static.wixstatic.com/media/3a09a9_f28a18096e4f42c9acd87e87b352217e.png/v1/fill/w_208,h_181,al_c,usm_0.66_1.00_0.01/3a09a9_f28a18096e4f42c9acd87e87b352217e.png" height="75" width="75
+			"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="MyNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">3 Wheeled Buggy</a></li>
+					<li><a href="#">4 Wheeled Buggy</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+</header>
+	<div id="myfirstchart" style="height: 250px" width: 250px";></div>
+
+
+<script type="text/javascript">
+	// Se añadio la llamada a la variable global Morris
+	/*global Morris*/
+		new Morris.Line({
+	  element: 'myfirstchart',
+	  data: [
+	    { year: '2008', value: 20 },
+	    { year: '2009', value: 10 },
+	    { year: '2010', value: 5 },
+	    { year: '2011', value: 5 },
+	    { year: '2012', value: 20 }
+	  ],
+	  xkey: 'year',
+	  
+	  ykeys: ['value'],
+	  
+	  labels: ['Value']
+	});
+</script>
+
+
+</body>
+
+<footer class="container-fluid sponsor text-center">
+<p>Sponsored by: GM|Boeing|Chevron</p>
+	
+</footer>
+
+</html>

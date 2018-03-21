@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta content="Alexander, Sebastian, Amanda, Javier" name="autor">
+	<meta content="GUI de Telemetria Moonbuggy Project UPRM" name="Descripcion">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel='stylesheet' href="graficas/Amanda/css/style.css"  type='text/css' />
+	<link rel='stylesheet' href='css/font.google.css'  type='text/css'>
+	<link rel="stylesheet" href="graficas/Amanda/css/font.css" type="text/css"/>
+	<link rel="stylesheet" href="graficas/Amanda/css/font-awesome.css" > 
+	<link rel="stylesheet" href="graficas/Amanda/css/morris.css">
+	<link rel="stylesheet" href="css/telemetria.css">
+
+
+    <script src="js/jquery3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="graficas/Amanda/js/jquery2.0.3.min.js"></script>
+	<script src="graficas/Amanda/js/raphael-min.js"></script>
+	<script src="graficas/Amanda/js/morris.js"></script>
+
+
+</head>
+
+<body class="dashboard-page" >
+    <!--Nav Bar-->	
+    <div class="row" style="color: white;" style="height: 75px;">
+        <nav class="navbar navbar-inverse" style="padding-bottom: 0px;padding-top: 10px;">
+        	 <div class="container-fluid">
+        	 		<button type="button" class="navbar-toggle" data-toggle="collapse" data target="#MyNavbar">
+        	 			<span class="icon-bar"></span>
+        	 			<span class="icon-bar"></span>
+        				<span class="icon-bar"></span>
+        			</button>
+        			<div class="col-md-1 col-lg-1" >
+	        			<img src="img/uprm.png" class="pull-left img-responsive" style="height: 75px;">
+	        		</div>
+	        		<div class="col-md-9 col-lg-9">
+	        			<center><h1>UPRM Moonbuggy Project, Telemetry Department</h1></center>
+	        		</div>
+	        		
+	        		<div class="col-md-1 col-lg-1">
+	        			<img src="img/moonbuggy.png" class="pull-left img-responsive" style="height: 85px;">
+	        		</div>
+	        		<div class="col-md-1 col-lg-1">
+	        			<img src="img/nasa.png" class="pull-left img-responsive" style="height: 70px; width:95px;">
+	        		</div>
+        	</div>
+        </nav>
+	</div>
+	<div class="row verde" style="color: white;">
+	    <!--Fecha, Hora,Bateria, Señal******-->
+        <div class="col-md-2">
+            <section class="form-control">
+        	    <option value="3 Wheeled Buggy">3 Wheeled Buggy</option>
+        	    <option value="4 Wheeled Buggy">4 Wheeled Buggy</option>
+            </section>
+    	</div>
+    	<div class="col-md-2">
+    		 <p class="top-row">
+    		 	Batería
+    		 	<img src="graficas/Amanda/images/bateria.png" style=" width:25px">
+            </p>
+        </div>
+        <div class="col-md-6" >
+            <p class="top-row">
+        	    Fecha, Hora 
+        	    <img src="graficas/Amanda/images/reloj.png" style="width:25px">
+            </p>
+        </div>
+        <div class="col-md-2">
+    	    <p class="top-row">
+    	        Señal
+    	        <img src="graficas/Amanda/images/wifi.png" style="width:25px">
+    	    </p>
+        </div>
+	</div> 
+    
+	
+	<!--GPS, Camara, Buggy's************-->
+	<div class="row center-row" >
+	    <div class="col-md-4 col-lg-4">
+	    	<p class="center-row"><!--GPS-->
+	    	    GPS
+	    		<p><img alt="400x400" src="graficas/Amanda/images/Maps-Satellite-In-Orbit-icon.png" class="img-responsive"></p>
+	   		</p>
+	    </div>
+	    <div class="col-md-4 col-lg-4">
+	    	<p class="center-row">
+	    		Camera
+	    		<p><img alt="400x400" style="width: 400px; height: 400px;" src="graficas/Amanda/images/camara.jpg" class="img-responsive"></p>
+	    	</p>
+	    </div>
+	    <div class="col-md-4 col-lg-4 ">
+	        <div class="thumb">
+            	<img src="js/holder.min.js/300x200?theme=social">
+            	<div class="caption">
+            		 Buggy's
+            	</div>
+            </div>
+	    </div>
+	</div>
+	
+	<!--Graphs**************************-->
+	<div class="row">
+        <div class="col-md-4 chart-left" style = "height:200px">
+				<div class="agile-Updating-grids">
+						<div class="area-grids-heading">
+							<h3>Temperatura y Humedad</h3>
+						</div>
+						<div id="graph1"></div>
+				</div>
+		</div>
+		<div class="col-md-4 chart-left" style = "height:200px">
+			<div class="agile-Updating-grids">
+				<div class="area-grids-heading">
+					<h3>Vibraciones</h3>
+				</div>
+				<div id="graph2"></div>
+			</div>
+		</div>
+		      <div class="col-md-4 chart-left" style = "height:200px">
+			<div class="agile-Updating-grids">
+				<div class="area-grids-heading">
+					<h3>Torque</h3>
+				</div>
+				<div id="graph3"></div>
+			</div>
+		</div>
+	</div>
+	<!--Footer************************-->
+	<div class="row">
+         <footer class="col-md-12 container-fluid sponsor text-center">
+            <p>Sponsored by:</p>
+            <img src="img/gm.png" style="height: 90px; width: 100px ">
+            <img src="img/boeing.png" style="height: 90px; width: 310px ">
+            <img src="img/chevron.png" style="height: 130px; width: 140px ">
+         </footer>
+	</div>
+	<script src="js/holder.min.js"></script>
+	<script type="text/javascript">
+		/*global Morris*/
+		/*global $
+		var nReloads = 0;
+		function data(offset) {
+		  var ret = [];
+		  for (var x = 0; x <= 240; x += 10) {
+			var v = (offset + x) % 240;
+		
+      						
+      	
+			ret.push({
+			  x: x,
+			  y: Math.sin(Math.PI * v / 120).toFixed(4),
+			  z: Math.cos(Math.PI * v / 120).toFixed(4),
+			  
+			});
+			
+		  }
+		  ret.shift();
+		  return ret;
+		}
+						
+		var graph = Morris.Line({
+			element: 'graph1',
+			data: data(0),
+			xkey: 'x',
+			ykeys: ['y', 'z'],
+			labels: ['Temperatura', 'Humedad'],
+			parseTime: false,
+			ymin: -1,
+			ymax: 1,
+			hideHover: true
+		});
+		var graph2 = Morris.Line({
+			element: 'graph2',
+			data: data(0),
+			xkey: 'x',
+			ykeys: ['y', 'z'],
+			labels: ['Vibracion1', 'Vibracion2'],
+			parseTime: false,
+			ymin: -1,
+			ymax: 1,
+			hideHover: true
+		});
+		var graph3 = Morris.Line({
+			element: 'graph3',
+			data: data(0),
+			xkey: 'x',
+			ykeys: ['y', 'z'],
+			labels: ['Temperatura', 'Humedad'],
+			parseTime: false,
+			ymin: -1,
+			ymax: 1,
+			hideHover: true
+		});
+		function update() {
+		  nReloads++;
+		  graph.setData(data(5 * nReloads));
+		  graph2.setData(data(5 * nReloads));
+		  graph3.setData(data(5 * nReloads));
+	
+		  $('#reloadStatus').text(nReloads + ' reloads');
+		}
+		setInterval(update, 100);*/
+	</script>		
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/proton.js"></script>
+	
+	
+</body>
+
+</html>

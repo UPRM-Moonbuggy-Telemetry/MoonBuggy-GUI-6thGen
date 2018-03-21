@@ -1,0 +1,49 @@
+ body{
+	         background-color: #696969;
+	         }
+        canvas{
+	        -moz-user-select: none;
+	        -webkit-user-select: none;
+	        -ms-user-select: none;
+        }
+        .sponsor{
+        	background-color: #DCDCDC;
+    	    	color: 	#32CD32;
+        }
+	    .navbar{
+		    padding-top: 15px;
+		    padding-bottom: 15px;
+		    padding-left: 15px;
+		    border: 0;
+		    border-radius: 0;
+		    margin-bottom: 0;
+		    font-size: 12px;
+	    }
+	    .navbar-nav li a:hover {
+	    	color:  #1abc9c;
+	    }
+	    .verde{
+	        background-color: rgb(30,138,13);
+	    }
+	    .top-row{
+	        background-color: rgb(30,138,13);
+	        text-align: center;
+	        padding:5px;
+	    }	    
+	    .center-row{
+	    	background-color: #4d4d4d; 
+	    	text-align: center;
+	        padding:5px;
+	    }	    
+	    .row.no-gutter {
+		  margin-left: 0;
+		  margin-right: 0;
+		}		
+		.row.no-gutter [class*='col-']:not(:first-child),
+		.row.no-gutter [class*='col-']:not(:last-child) {
+		  padding-right: 0;
+		  padding-left: 0;
+		}
+		.thumb {width:300px;height:250px;margin:25px;float:left}
+		.thumb img, .thumb .holderjs, .thumb object {display:block;margin:0 auto}
+		.thumb .caption {padding:10px;text-align:center;margin-top:10px}

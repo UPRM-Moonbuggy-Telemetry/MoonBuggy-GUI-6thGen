@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta content="Alexander, Sebastian, Amanda, Javier" name="autor">
+	<meta content="GUI de Telemetria" name="Descripcion">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+    <!-- El Selector universal * es lento de por si -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- bootstrap-css -->
+	<link rel="stylesheet" href="/css/bootstrap.css">
+	<!-- //bootstrap-css -->
+	<!-- Custom CSS -->
+	<link href="/graficas/Amanda/css/style.css" rel='stylesheet' type='text/css' />
+	<!-- font CSS -->
+	<link href='fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+	<!-- font-awesome icons -->
+	<link rel="stylesheet" href="/graficas/Amanda/css/font.css" type="text/css"/>
+	<link href="/graficas/Amanda/css/font-awesome.css" rel="stylesheet"> 
+	<!-- //font-awesome icons -->
+	<script src="/graficas/Amanda/js/jquery2.0.3.min.js"></script>
+	<!-- charts -->
+	<script src="/graficas/Amanda/js/raphael-min.js"></script>
+	<script src="/graficas/Amanda/js/morris.js"></script>
+	<link rel="stylesheet" href="/graficas/Amanda/css/morris.css">
+   
+    <style type="text/css">
+	    body{
+	         background-color: #696969;
+	         }
+
+        canvas{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        }
+        .sponsor{
+        	background-color: #DCDCDC;
+    	    	color: 	#32CD32;
+
+        }
+    .navbar{
+
+    	 padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    }
+    .navbar-nav li a:hover {
+    	color:  #1abc9c;
+    }
+    .top-row{
+        background-color: #00ff00;
+        text-align: center;
+        padding:5px;
+    }
+    
+    .center-row{
+    	background-color: #4d4d4d; 
+    	text-align: center;
+        padding:5px;
+    }
+    
+    .row.no-gutter {
+	  margin-left: 0;
+	  margin-right: 0;
+		}
+	
+	.row.no-gutter [class*='col-']:not(:first-child),
+	.row.no-gutter [class*='col-']:not(:last-child) {
+	  padding-right: 0;
+	  padding-left: 0;
+	}
+	
+
+
+    </style>
+
+</head>
+
+<body class="dashboard-page">
+<!--Nav Bar-->	
+	<div class="row">
+        <header>
+        	 <nav class="navbar navbar-inverse">
+        	 	<div class="container-fluid">
+        	 		<div class="navbar-header">
+        	 			<button type="button" class="navbar-toggle" data-toggle="collapse" data target="#MyNavbar">
+        	 			<span class="icon-bar"></span>
+        	 			<span class="icon-bar"></span>
+        				<span class="icon-bar"></span>
+        				</button>
+        			<a class="navbar-brand" href="#">UPRM Moonbuggy Telemetry Department</a>
+        			<a class="navbar-left" href="#">
+        				<img src="http://static.wixstatic.com/media/3a09a9_f28a18096e4f42c9acd87e87b352217e.png/v1/fill/w_208,h_181,al_c,usm_0.66_1.00_0.01/3a09a9_f28a18096e4f42c9acd87e87b352217e.png" height="80" width="75">
+        				<img src="http://www.nasa.gov/sites/default/files/images/nasaLogo-570x450.png" height="55px" width="px">
+        			</a>
+        			</div>
+        			<div class="collapse navbar-collapse" id="MyNavbar">
+        				<ul class="nav navbar-nav navbar-right">
+        					<li><a href="#">3 Wheeled Buggy</a></li>
+        					<li><a href="#">4 Wheeled Buggy</a></li>
+        				</ul>
+        			</div>
+        		</div>
+        	</nav>
+        
+        </header>
+	</div>
+	
+<!--Fecha, Hora,Bateria, Señal******-->
+	<div class="container-fluid" height= "15px">
+		<div class="row no-gutter">
+			
+			
+			 <div class="col-md-2 dropdown-toggle" data-toggle="dropdown">
+		    	<p class="top-row">
+		    		Buggy's
+		   			<span class="caret">
+		    	</p>
+                <ul class="dropdown-menu">		<!-- aun no he logrado poner un dropdown en un row, Javier -->
+			      <li><a href="#">3 Wheeled buggy</a></li>
+			      <li><a href="#">4 wheeled buggy</a></li>
+			    </ul>
+		    </div>
+			
+		    <div class="col-md-2">
+		    	<p class="top-row">
+		    		Batería
+		    		<img src="graficas/Amanda/images/bateria.png" width="15px">
+		    	</p>
+		    </div>
+		    
+	        <div class="col-md-6" >
+			    <p class="top-row">
+			    	Fecha, Hora 
+			    	<img src="graficas/Amanda/images/reloj.png" width="15px">
+			    </p>
+			</div>
+			
+			<div class="col-md-2">
+				<p class="top-row">
+				    Señal
+				    <img src="graficas/Amanda/images/wifi.png" width="15px"></img>
+				</p>
+			</div>
+		</div>
+	</div>
+	
+<!--GPS, Camara, Buggy's************-->
+	<div class="container-fluid">
+	    <div class="row center-row" height="250px">
+	        <div class="col-md-4">
+	        	<!--GPS-->
+	        	<p class="center-row">
+	        	    GPS
+	        	<p></p><img src="graficas/Amanda/images/Maps-Satellite-In-Orbit-icon.png" width="250px"></img>
+	       </p></p>
+	        </div>
+	        <div class="col-md-4">
+	        	<p class="center-row">
+	        		Camera
+	        		<p><img src="graficas/Amanda/images/camara.jpg" width="250"></p>
+	        	</p>
+	        	
+	        </div>
+	        <div class="col-md-4 center-row">
+	        	Buggy's
+	        </div>
+	    </div>
+	    
+	    
+	    
+	    
+	</div>
+	
+<!--Graphs**************************-->
+	<div class="row">
+        <div class="col-md-4 chart-left" style = "height:200px">
+				<div class="agile-Updating-grids">
+						<div class="area-grids-heading">
+							<h3>Temperatura y Humedad</h3>
+						</div>
+						<div id="graph1"></div>
+				</div>
+		</div>
+		                <div class="col-md-4 chart-left" style = "height:200px">
+					<div class="agile-Updating-grids">
+						<div class="area-grids-heading">
+							<h3>Vibraciones</h3>
+						</div>
+						<div id="graph2"></div>
+					</div>
+				</div>
+		        <div class="col-md-4 chart-left" style = "height:200px">
+					<div class="agile-Updating-grids">
+						<div class="area-grids-heading">
+							<h3>Torque</h3>
+						</div>
+						<div id="graph3"></div>
+					</div>
+				</div>
+	</div>
+
+		<script>
+						var nReloads = 0;
+						function data(offset) {
+						  var dps = [];
+						  for (var x = 0; x <= 240; x += 10) {
+							var v = (offset + x) % 240;
+							dps.push({
+							  x: x,
+							  y: Math.sin(Math.PI * v / 120).toFixed(4),
+							  z: Math.cos(Math.PI * v / 120).toFixed(4),
+							  
+							});
+							if (dps.length >  10 )
+					      	{
+					      		dps.shift();				
+					      	}
+						  }
+						  return dps;
+						}
+						/*global Morris*/
+						/*global $*/
+						var graph = Morris.Line({
+							element: 'graph1',
+							data: data(0),
+							xkey: 'x',
+							ykeys: ['y', 'z'],
+							labels: ['Temperatura', 'Humedad'],
+							parseTime: false,
+							ymin: 0,
+							ymax: 240,
+							hideHover: true
+						});
+						var graph2 = Morris.Line({
+							element: 'graph2',
+							data: data(0),
+							xkey: 'x',
+							ykeys: ['y', 'z', 'w','v'],
+							labels: ['Rueda1', 'Rueda2', 'Rueda3', 'Rueda4'],
+							parseTime: false,
+							ymin: 0,
+							ymax: 2000,
+							hideHover: true
+						});
+						var graph3 = Morris.Line({
+							element: 'graph3',
+							data: data(0),
+							xkey: 'x',
+							ykeys: ['y', 'z', 'w', 'v','t','a'],
+							labels: ['1', '2','3','4','5','6'],
+							parseTime: false,
+							ymin: 0,
+							ymax: 2000,
+							hideHover: true
+						});
+					
+						var graph4 = Morris.Line({
+							element: 'graph3',
+							data: data(0),
+							xkey: 'x',
+							ykeys: ['y', 'z', 'w', 'v'],
+							labels: ['1', '2','3','4'],
+							parseTime: false,
+							ymin: 0,
+							ymax: 2000,
+							hideHover: true
+						});
+						function update() {
+						  nReloads++;
+						  graph.setData(data(5 * nReloads));
+						  graph2.setData(data(5 * nReloads));
+						  graph3.setData(data(5 * nReloads));
+						  graph4.setData(data(5 * nReloads));
+					
+						  $('#reloadStatus').text(nReloads + ' reloads');
+						}
+						setInterval(update, 100);
+			</script>		
+	<script src="js/bootstrap.js"></script>
+	<script src="js/proton.js"></script>
+	
+	<!--Footer************************-->
+	<div class="row">
+         <footer class="col-md-12 container-fluid sponsor text-center">
+            <p>Sponsored by: GM|Boeing|Chevron</p>
+         </footer>
+	</div>
+		
+</body>
+
+</html>

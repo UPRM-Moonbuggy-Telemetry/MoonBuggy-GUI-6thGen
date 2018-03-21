@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <script type="text/javascript" src="">
+       /*global $*/
+       $(function() {
+    $.get('https://telemetria-moonbuggy-project-6gen-oufi.c9users.io/array_db.php', { dir : 'path/to/dir' }, function(data) {
+        // you should now have a json encoded PHP array
+        $.each(data, function(key, val) {
+            alert('index ' + key + ' points to file ' + val);
+        });
+    }, 'json');
+});
+    </script>
+</html>
