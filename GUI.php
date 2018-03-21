@@ -39,6 +39,7 @@
     <style type="text/css">
 	    body{
 	         background-color: #696969;
+           padding-bottom: 50px;
 	         }
 
         .canvas{
@@ -116,7 +117,6 @@
 
 <body class="dashboard-page">
 
-		<?php include('database.php');?>
 <!--Nav Bar-->
 	<div class="row no-gutter">
         <header>
@@ -374,6 +374,9 @@
 		</div>
 	</div>
 
+<p style="color:#696969;font-size:5%;">
+<?php include('database.php');?>
+</p>
 <script>
 
 var dbOnOff = false;
@@ -447,6 +450,7 @@ function turnOnDB(){
 
     //        var graphData =
 
+
     var graph = Morris.Line({
       element: 'graph1',
       data: [<?php echo $chart_data; ?>],
@@ -519,7 +523,7 @@ function turnOnDB(){
          success:function(data)
          {
 
-      //     console.log(data);
+      //   console.log(data);
            graph.setData(data);
            graph2.setData(data);
            graph3.setData(data);
