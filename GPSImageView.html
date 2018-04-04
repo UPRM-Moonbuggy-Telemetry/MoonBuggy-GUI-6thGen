@@ -39,30 +39,30 @@
     <script>
 
     (function(){
-      move(true);
-      setTimeout(move(false), 10000);
+      move();
     }());
 
-    function move(arg) {
+    function move() {
       var elem = document.getElementById("gpsBuggyPin");
       var pos = 0;
+      var count = 0;
       var id = setInterval(frame, 10);
+
       function frame() {
-        if(!arg){
-          if (pos == 375) {
-            console.log("reset pos");
-            pos = 0;
-          }
-          else {
-            console.log("moving");
-            pos++;
-            elem.style.top = pos + 'px';
-            elem.style.left = pos + 'px';
+        if (pos == 375) {
+          console.log("reset pos");
+          pos = 0;
+          count++;
+          if(count>=3){
+            clearInterval(id);
+            console.log("stopped")
           }
         }
-        else{
-          clearInterval(id);
-          console.log("stopped moving");
+        else {
+          console.log("moving");
+          pos++;
+          elem.style.top = pos + 'px';
+          elem.style.left = pos + 'px';
         }
       }
     }
