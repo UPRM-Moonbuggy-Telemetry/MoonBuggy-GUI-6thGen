@@ -31,10 +31,10 @@
     </h1>
 
     <!--Animation container-->
-    <div id = "gpsMapContainer">
-      <img src = "img\nasa.png" />
-      <div id = "gpsBuggyPin">
-        <img src = "img\moonbuggy.png" />
+    <div>
+      <img id = "gpsMapContainer" src = "img\nasa.png"/>
+      <div>
+        <img id = "gpsBuggyPin" src = "img\moonbuggy.png" />
       </div>
       </div>
     </div>
@@ -47,14 +47,28 @@
 
     function move() {
       var elem = document.getElementById("gpsBuggyPin");
-      var pos = 0;
+
+      var paren = document.getElementById("gpsMapContainer")
+      paren = paren.getBoundingClientRect();
+      var parenPos = {
+        left: paren.left + window.scrollX,
+        top: paren.top + window.scrollY,
+        right: paren.left+paren.width
+      };
+
+      var xPos = parenPos.left;
+      var yPos = parenPos.top;
+
       var count = 0;
       var id = setInterval(frame, 10);
 
       function frame() {
-        if (pos == 375) {
+        if (xPos == parenPos.right) {
           console.log("reset pos");
-          pos = 0;
+
+          xPos = parenPos.left;
+          yPos = parenPos.top;
+
           count++;
           if(count>=3){
             clearInterval(id);
@@ -63,9 +77,10 @@
         }
         else {
           console.log("moving");
-          pos++;
-          elem.style.top = pos + 'px';
-          elem.style.left = pos + 'px';
+          yPos++;
+          xPos++;
+          elem.style.top = yPos + 'px';
+          elem.style.left = xPos + 'px';
         }
       }
     }
