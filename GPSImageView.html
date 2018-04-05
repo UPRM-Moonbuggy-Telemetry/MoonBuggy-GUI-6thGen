@@ -54,6 +54,10 @@
     //east lat limit:  -86.652185
     //north long limit: 34.711180
     //south long limit: 34.709558
+
+    //TODO make API so that move is started on ajax pull
+    //also make lat lng data an input paramter
+    //make it more efficient (its going to be repeated every 3 secs)
     (function(){
       move();
     }());
@@ -92,7 +96,7 @@
         else {
           console.log("moving");
           // yPos++;
-          yPos = map(getRndNumber(34.709558,34.711180), 34.709558, 34.711180, parenPos.top, paren.bottom);
+          yPos = map(getRndNumber(34.709558,34.711180), 34.709558, 34.711180, parenPos.top, parenPos.top + paren.height);
           xPos+= paren.width/paren.height;
           elem.style.top = yPos + 'px';
           elem.style.left = xPos + 'px';
