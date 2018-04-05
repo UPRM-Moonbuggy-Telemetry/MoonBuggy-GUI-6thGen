@@ -9,9 +9,17 @@
       align-items: center;
     }
 
-    #gpsMapContainer {
-      width: 400px;
+    /* .conatiner{
+      width: 800px;
       height: 400px;
+      position: relative;
+    } */
+    #gpsMapContainer {
+      transform: rotate(90deg);
+      width: 400px;
+      height: 800px;
+      /* width: auto;
+      height: auto; */
       position: relative;
       /* background: #93998f; */
     }
@@ -31,8 +39,9 @@
     </h1>
 
     <!--Animation container-->
-    <div>
-      <img id = "gpsMapContainer" src = "img\nasa.png"/>
+    <div class = "container">
+      <img id = "gpsMapContainer" src = "img\Map.PNG"/>
+      <img src = "img\mapLegend.PNG" style = "transform: rotate(90deg);"/>
       <div>
         <img id = "gpsBuggyPin" src = "img\moonbuggy.png" />
       </div>
@@ -41,19 +50,24 @@
 
     <script>
 
+    //west lat limit:  -86.655645
+    //east lat limit:  -86.652185
+    //north long limit: 34.711180
+    //south long limit: 34.709558
     (function(){
       move();
     }());
 
     function move() {
       var elem = document.getElementById("gpsBuggyPin");
+      var paren = document.getElementById("gpsMapContainer");
 
-      var paren = document.getElementById("gpsMapContainer")
       paren = paren.getBoundingClientRect();
+      console.log("img pos: "+paren.left+ ", "+ paren.right+ ", "+ paren.height+", "+ paren.width);
       var parenPos = {
         left: paren.left + window.scrollX,
         top: paren.top + window.scrollY,
-        right: paren.left+paren.width
+        right: paren.left + paren.width
       };
 
       var xPos = parenPos.left;
@@ -63,7 +77,7 @@
       var id = setInterval(frame, 10);
 
       function frame() {
-        if (xPos == parenPos.right) {
+        if (xPos >= parenPos.right - elem.getBoundingClientRect().width) {
           console.log("reset pos");
 
           xPos = parenPos.left;
@@ -77,12 +91,21 @@
         }
         else {
           console.log("moving");
-          yPos++;
-          xPos++;
+          // yPos++;
+          yPos = getRndInteger(parenPos.top, paren.bottom);
+          xPos+= paren.width/paren.height;
           elem.style.top = yPos + 'px';
           elem.style.left = xPos + 'px';
         }
       }
+    }
+
+    function getRndInteger(min, max) {
+      return Math.floor(Math.random() * (max - min) ) + min;
+    }
+
+    function map(x, in_min, in_max, out_min, out_max) {
+      return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
     }
     </script>
   </body>
