@@ -28,8 +28,8 @@ function move(width, height, elemWidth, elemHeight, lat, long) {
     right: paren.left + paren.width
   };
 
-      yPos = map(getRndNumber(34.709558,34.711180), 34.709558, 34.711180, parenPos.top, parenPos.top + paren.height);
-      xPos = map(getRndNumber(-86.655645, -86.652185), -86.655645, -86.652185, parenPos.left, parenPos.left + paren.width);
+      yPos = map(long, 34.709558, 34.711180, parenPos.top, parenPos.top + paren.height);
+      xPos = map(lat, -86.655645, -86.652185, parenPos.left, parenPos.left + paren.width);
       elem.style.top = yPos + 'px';
       elem.style.left = xPos + 'px';
 }
