@@ -9,19 +9,6 @@
       align-items: center;
     }
 
-    /* .conatiner{
-      width: 800px;
-      height: 400px;
-      position: relative;
-    } */
-    #gpsMapContainer {
-      transform: rotate(90deg);
-      width: 400px;
-      height: 800px;
-      position: relative;
-      /* background: #93998f; */
-    }
-
     </style>
   </head>
   <body>
@@ -30,7 +17,7 @@
     </h1>
 
     <!--Animation container-->
-    <img id = "parent" src = "img\Map.PNG"/>
+    <img id = "parent" src = "img\Map.PNG" style = "transform: rotate(90deg);"/>
     <img src = "img\mapLegend.PNG" style = "transform: rotate(90deg);"/>
     <img id = "element" src = "img\moonbuggy.png" />
 
@@ -58,6 +45,10 @@
 
       var paren = document.getElementById("parent");
       var parenStyle = paren.style;
+      parenStyle.position = "relative";
+      parenStyle.width = width + "px";
+      parenStyle.height = height + "px";
+
 
       paren = paren.getBoundingClientRect();
       console.log("img pos: "+paren.left+ ", "+ paren.right+ ", "+ paren.height+", "+ paren.width);
