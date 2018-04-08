@@ -18,8 +18,6 @@
       transform: rotate(90deg);
       width: 400px;
       height: 800px;
-      /* width: auto;
-      height: auto; */
       position: relative;
       /* background: #93998f; */
     }
@@ -39,14 +37,9 @@
     </h1>
 
     <!--Animation container-->
-    <div class = "container">
-      <img id = "gpsMapContainer" src = "img\Map.PNG"/>
-      <img src = "img\mapLegend.PNG" style = "transform: rotate(90deg);"/>
-      <div>
-        <img id = "gpsBuggyPin" src = "img\moonbuggy.png" />
-      </div>
-      </div>
-    </div>
+    <img id = "gpsMapContainer" src = "img\Map.PNG"/>
+    <img src = "img\mapLegend.PNG" style = "transform: rotate(90deg);"/>
+    <img id = "gpsBuggyPin" src = "img\moonbuggy.png" />
 
     <script>
 
@@ -58,6 +51,7 @@
     //TODO make API so that move is started on ajax pull
     //also make lat lng data an input paramter
     //make it more efficient (its going to be repeated every 3 secs)
+    //TODO (optional) make API easily integretable, no need to pass style attributes or complicated HTML lines
     (function(){
       move();
     }());
