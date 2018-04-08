@@ -4,14 +4,9 @@
 //south long limit: 34.709558
 
 //TODO make API so that move is started on ajax pull
-//also make lat lng data an input paramter
-//make it more efficient (its going to be repeated every 3 secs)
 //TODO (optional) make API easily integretable, no need to pass complicated HTML lines
-(function(){
-  move(400, 800, 25, 25);
-}());
 
-function move(width, height, elemWidth, elemHeight) {
+function move(width, height, elemWidth, elemHeight, lat, long) {
   var elem = document.getElementById("element");
   var elemStyle = elem.style;
   elemStyle.position = "absolute";
@@ -33,34 +28,10 @@ function move(width, height, elemWidth, elemHeight) {
     right: paren.left + paren.width
   };
 
-  var xPos = parenPos.left;
-  var yPos = parenPos.top;
-
-  var count = 0;
-  var id = setInterval(frame, 10);
-
-  function frame() {
-    if (xPos >= parenPos.right - elem.getBoundingClientRect().width) {
-      console.log("reset pos");
-
-      xPos = parenPos.left;
-      yPos = parenPos.top;
-
-      count++;
-      if(count>=3){
-        clearInterval(id);
-        console.log("stopped");
-      }
-    }
-    else {
-      console.log("moving");
-      // yPos++;
       yPos = map(getRndNumber(34.709558,34.711180), 34.709558, 34.711180, parenPos.top, parenPos.top + paren.height);
-      xPos+= paren.width/paren.height;
+      xPos = map(getRndNumber(-86.655645, -86.652185), -86.655645, -86.652185, parenPos.left, parenPos.left + paren.width);
       elem.style.top = yPos + 'px';
       elem.style.left = xPos + 'px';
-    }
-  }
 }
 
 function getRndInteger(min, max) {

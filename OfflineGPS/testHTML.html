@@ -3,8 +3,28 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+
+<style>
+body {
+  text-align: center;
+  align-items: center;
+}
+</style>
+
   </head>
   <body>
 
+    <button onclick = "move(400,800,25,25, 0, 0); show();">Press!</button>
+    <div id = "container" style = "visibility: hidden">
+      <img id = "parent" src = "..\img\Map.PNG" style = "transform: rotate(90deg);" />
+      <img id = "element" src = "..\img\moonbuggy.png" />
+    </div>
+
+    <script>
+      function show(){
+        document.getElementById("container").style.visibility = "visible";
+      }
+    </script>
+    <script src = "OfflineMaps.js"></script>
   </body>
 </html>
