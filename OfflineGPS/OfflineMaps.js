@@ -5,6 +5,35 @@
 
 //TODO make API so that move is started on ajax pull
 //TODO (optional) make API easily integretable, no need to pass complicated HTML lines
+class OfflineMaps{
+
+  constructor (width, height, elemWidth, elemHeight){
+    this.width = width;
+    this.height = height;
+    this.elemWidth = elemWidth;
+    this.elemHeight = elemHeight;
+  }
+
+  refresh(lat, long){
+    move(this.width, this.height, this.elemWidth, this.elemHeight, lat, long);
+  }
+}
+var userDimensions;
+
+function setDimensions(width, height, elemWidth, elemHeight){
+  userDimensions = {
+    w:width,
+    h:height,
+    ew: elemWidth,
+    eh: elemHeight
+  };
+}
+
+function GPSRefresh(lat, long){//setDimensions needs to be set first
+  console.log(userDimensions);
+  console.log(userDimensions.w);
+  move(userDimensions.w, userDimensions.h, userDimensions.ew, userDimensions.eh, lat, long);
+}
 
 function move(width, height, elemWidth, elemHeight, lat, long) {
   var elem = document.getElementById("element");
@@ -21,7 +50,8 @@ function move(width, height, elemWidth, elemHeight, lat, long) {
 
 
   paren = paren.getBoundingClientRect();
-  console.log("img pos: "+paren.left+ ", "+ paren.right+ ", "+ paren.height+", "+ paren.width);
+  console.log("input Coords: "+ lat + ", "+ long);
+  console.log("elem pos: "+elemStyle.left+ ", "+ elemStyle.top);
   var parenPos = {
     left: paren.left + window.scrollX,
     top: paren.top + window.scrollY,

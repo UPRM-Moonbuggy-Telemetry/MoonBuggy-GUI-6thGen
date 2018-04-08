@@ -14,15 +14,22 @@ body {
   </head>
   <body>
 
-    <button onclick = "move(400,800,25,25, 0, 0); show();">Press!</button>
+    <button onclick = " show();">Press!</button>
     <div id = "container" style = "visibility: hidden">
       <img id = "parent" src = "..\img\Map.PNG" style = "transform: rotate(90deg);" />
       <img id = "element" src = "..\img\moonbuggy.png" />
     </div>
 
     <script>
+    // move(400,800,25,25, 0, 0);
       function show(){
         document.getElementById("container").style.visibility = "visible";
+        setDimensions(400, 800, 25, 25);
+        GPSRefresh(getRndNumber(-86.655645, -86.652185), getRndNumber(34.709558,34.711180));
+
+        //either of these 2 ways is fine to use
+        // var map = new OfflineMaps(400, 800, 25, 25);
+        // map.refresh(getRndNumber(-86.655645, -86.652185), getRndNumber(34.709558,34.711180));
       }
     </script>
     <script src = "OfflineMaps.js"></script>
