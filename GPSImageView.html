@@ -21,13 +21,6 @@
       position: relative;
       /* background: #93998f; */
     }
-    #gpsBuggyPin {
-      width: 25px;
-      height: 25px;
-      position: absolute;
-      /* background: red; */
-      border-radius: 50%;
-    }
 
     </style>
   </head>
@@ -37,9 +30,9 @@
     </h1>
 
     <!--Animation container-->
-    <img id = "gpsMapContainer" src = "img\Map.PNG"/>
+    <img id = "parent" src = "img\Map.PNG"/>
     <img src = "img\mapLegend.PNG" style = "transform: rotate(90deg);"/>
-    <img id = "gpsBuggyPin" src = "img\moonbuggy.png" />
+    <img id = "element" src = "img\moonbuggy.png" />
 
     <script>
 
@@ -53,12 +46,18 @@
     //make it more efficient (its going to be repeated every 3 secs)
     //TODO (optional) make API easily integretable, no need to pass style attributes or complicated HTML lines
     (function(){
-      move();
+      move(400, 800, 25, 25);
     }());
 
-    function move() {
-      var elem = document.getElementById("gpsBuggyPin");
-      var paren = document.getElementById("gpsMapContainer");
+    function move(width, height, elemWidth, elemHeight) {
+      var elem = document.getElementById("element");
+      var elemStyle = elem.style;
+      elemStyle.position = "absolute";
+      elemStyle.width = elemWidth + "px";
+      elemStyle.height = elemHeight + "px";
+
+      var paren = document.getElementById("parent");
+      var parenStyle = paren.style;
 
       paren = paren.getBoundingClientRect();
       console.log("img pos: "+paren.left+ ", "+ paren.right+ ", "+ paren.height+", "+ paren.width);
