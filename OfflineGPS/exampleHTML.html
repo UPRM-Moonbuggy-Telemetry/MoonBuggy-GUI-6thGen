@@ -16,7 +16,7 @@ body {
 
     <button onclick = " show();">Press!</button>
     <div id = "container" style = "visibility: hidden">
-      <img id = "parent" src = "..\img\Map.PNG" style = "transform: rotate(90deg);" />
+      <img id = "parent" src = "..\img\Map.PNG" style = "" />
       <img id = "element" src = "..\img\moonbuggy.png" />
     </div>
 
@@ -30,7 +30,7 @@ body {
         // GPSRefresh(getRndNumber(-86.655645, -86.652185), getRndNumber(34.709558,34.711180));
 
         //method 2 (preferred)
-        var map = new OfflineMaps(400, 800, 25, 25); //constructed with dimensions of parent and element
+        var map = new OfflineMaps(800, 400, 25, 25); //constructed with dimensions of parent and element
         map.refresh(getRndNumber(-86.655645, -86.652185), getRndNumber(34.709558,34.711180));
       }
     </script>
