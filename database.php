@@ -15,10 +15,10 @@ $Tension = rand(0,130);
 $Fecha = gmstrftime("Time: %I:%M: %S %p Date: %D");
 
 
-$sqi = "INSERT INTO buggy3 (temperatura, vibracionDI, vibracionDS,vibracionIS)
-        VALUES ($Temp,$Vibration ,$Vibration,$Vibration)";
+//$sqi = "INSERT INTO buggy3 (temperatura, vibracionDI, vibracionDS,vibracionIS)
+  //      VALUES ($Temp,$Vibration ,$Vibration,$Vibration)";
 
-mysqli_query( $connect, $sqi);
+//mysqli_query( $connect, $sqi);
 
 $query = "SELECT * FROM buggy3";
 $result = mysqli_query($connect, $query);
@@ -27,7 +27,7 @@ $result = mysqli_query($connect, $query);
 $count = mysqli_num_rows($result);
 
 if($count > 30) {
-   $query = "SELECT * FROM buggy3 ORDER BY id DESC LIMIT 30";
+   $query = "SELECT * FROM buggy3 ORDER BY id DESC LIMIT 20";
     $result = mysqli_query($connect, $query);
 }
 
