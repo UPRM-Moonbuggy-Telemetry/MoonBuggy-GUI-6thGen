@@ -251,6 +251,7 @@
           return pos;
         }
 
+<<<<<<< HEAD
         var lat;
         var lng;
         function setPos(int lat, int lng){
@@ -264,6 +265,20 @@
             lng:this.lng
           };
         }
+=======
+	        	<div class="center-row" >
+              <!--
+	        		<video class="gif-video"  width = "700px" controls>
+	        			<source src="graficas/Amanda/images/nasaLaunch.mp4" type="video/mp4">
+	        			</video>
+              -->
+              <img src="http://192.168.0.15:8081/" style="width:400px;height:400px;">
+	        	<!--
+	        		Camera
+	        		<p><img src="graficas/Amanda/images/camara.jpg" width="250"></p>
+	        		-->
+	        	</div>
+>>>>>>> 3500f6e87d113b565c284fb7f0ef17ca26a3f6a1
 
         function initMap() {
           var map = new google.maps.Map(document.getElementById('map'), {
